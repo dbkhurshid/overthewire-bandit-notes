@@ -1,4 +1,4 @@
-# Bandit Level 00 → Level 01
+# Bandit Level 0 → Level 1
 
 ## What I learned
 
