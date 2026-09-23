@@ -2,26 +2,40 @@
 
 ## What I learned
 
-I used the `ls` command and found that the filename was `-`.
+I used the `ls` command and found a file named:
 
-At first, I tried:
-
-```bash
-cat -
+```text
+--spaces in this filename--
 ```
 
-but it did not read the file. The cursor just kept waiting.
-
-I learned that `-` can have a special meaning in Linux commands, so `cat` was treating it as standard input instead of the filename.
-
-I then used:
+At first, I tried to read it using:
 
 ```bash
-cat ./-
+cat --spaces in this filename--
 ```
 
-The `./` means the current directory, so `./-` tells `cat` to read the file named `-` from the current directory.
+but it didn't work because the spaces made the filename get treated as separate arguments, and `--spaces` was also interpreted as an option.
+
+I then tried putting the filename in quotes:
+
+```bash
+cat "--spaces in this filename--"
+```
+
+This fixed the spaces, but it still didn't work because the filename starts with `--`.
+
+I learned that `--` can be used to tell a command to stop treating what follows as options. The command that worked was:
+
+```bash
+cat -- "--spaces in this filename--"
+```
+
+I also learned that `./` means the current directory. For example, this would also work:
+
+```bash
+cat "./--spaces in this filename--"
+```
 
 ## Key takeaway
 
-I learned that filenames can have special characters such as `-`, and using `./` can specify that I am referring to a file in the current directory.
+I learned how spaces in filenames can affect commands and how `--` and `./` can be used when working with filenames that could be interpreted specially.
