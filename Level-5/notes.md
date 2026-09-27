@@ -1,4 +1,4 @@
-# Bandit Level 5 → Level 6
+# Bandit Level 5
 
 ## What I learned
 
