@@ -1,39 +1,66 @@
-# Bandit Level 9
+Bandit Level 9 → Level 10
+Goal
 
-## Goal
+The password for the next level is stored in data.txt and is one of the few human-readable strings, preceded by several = characters.
 
-The password for the next level is stored in `data.txt` in a binary-looking file. We need to find the human-readable strings and identify the password.
+What I tried
 
-## What I used
+First, I checked the file:
 
-```bash
+cat data.txt
+
+The output wasn't useful because the file contained a lot of unreadable/binary-looking characters.
+
+I remembered that strings can extract readable text from files, so I tried:
+
+strings data.txt
+
+This gave me a lot of readable strings, but there were still too many results to easily identify the password.
+
+So I used grep to look for lines containing =:
+
 strings data.txt | grep "="
-```
 
-### `strings`
+This gave me:
 
-`strings` extracts readable text from a file. This is useful when a file contains binary or non-readable data but also has some normal text hidden inside it.
-
-### `grep "="`
-
-I used `grep` to filter the output and only show lines containing `=`.
-
-The output included:
-
-```text
+\========== the
+q:=V
+K       *=
+=zZw
+w=-1
+vc.=
 ========== password
-```
 
-This showed where the password was located.
+The line with several = characters followed by password matched the description from the challenge, so I used the value from that line as the password for the next level.
 
-## What I learned
+What I learned
+strings
 
-`strings` is useful when I need to search through a file that doesn't look like normal text.
+strings is useful when working with files that contain binary or non-readable data. It searches the file and displays sequences of readable characters.
 
-Combining commands with `|` makes it easier to filter the output. Here, `strings` found the readable text and `grep` narrowed it down to the lines containing `=`.
+grep
 
-## Command to remember
+grep lets me search for specific text in command output. In this case, I searched for = because the challenge said the password was preceded by several = characters.
 
-```bash
+Combining commands with |
+
+I used:
+
 strings data.txt | grep "="
-```
+
+The | (pipe) takes the output from the command on the left and sends it to the command on the right.
+
+So in this case:
+
+data.txt → strings → grep → filtered output
+
+This was useful because instead of manually looking through all the output from strings, I could filter it down to the lines containing =.
+
+Commands to remember
+strings data.txt
+
+Extract readable strings from a file.
+
+strings data.txt | grep "="
+
+Extract readable strings and filter the results for lines containing =.
