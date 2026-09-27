@@ -1,6 +1,6 @@
 # OverTheWire Bandit Notes
 
-This repository documents my progress through the OverTheWire Bandit wargame.
+This repository documents my progress through the OverTheWire Bandit.
 
 I'm using Bandit to improve my Linux command-line skills and build a stronger foundation for cybersecurity. Along the way, I'm documenting the commands I use, the problems I run into, and the things I learn from each level.
 
@@ -67,4 +67,4 @@ The notes are based on my actual learning process, including the issues I faced 
 
 Each level has its own folder containing notes about how I approached the challenge, the commands I used, the problems I encountered, and what I learned from them.
 
-I'm keeping this repository as a learning journal rather than just a collection of solutions
+I'm keeping this repository as a learning journal rather than just a collection of solutions.
